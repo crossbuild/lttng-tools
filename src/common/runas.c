@@ -527,6 +527,10 @@ int run_as_rmdir_recursive(const char *path, uid_t uid, gid_t gid)
 	return run_as(RUN_AS_RMDIR_RECURSIVE, &data, uid, gid);
 }
 
+#ifndef SIGUNUSED
+#define SIGUNUSED 31
+#endif
+
 static
 int reset_sighandler(void)
 {
